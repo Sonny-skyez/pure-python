@@ -65,28 +65,24 @@ class Calculator():
 
 def wybór_opcji():
 
-    wynik = input('\nWybierz rodzaj działania: \n\n'
-                   '1 - dodawanie;\n'
-                   '2 - odejmowanie;\n'
-                   '3 - mnożenie;\n'
-                   '4 - dzielenie;\n'
-                   'exit - wyjście\n\n'
-                   'Wybór: ')
+    menu_text = '''
+        Wybierz rodzaj działania:
+        1 - dodawanie;
+        2 - odejmowanie;
+        3 - mnożenie;
+        4 - dzielenie;
+        exit - wyjście;
+        Wybór: '''
+
+    wynik = input(menu_text)
 
     while wynik not in ['1','2','3','4','exit']:
 
         print('Wybierz jedną z dostępnych opcji!')
-        wynik = input('\nWybierz rodzaj działania: \n\n'
-                      '1 - dodawanie;\n'
-                      '2 - odejmowanie;\n'
-                      '3 - mnożenie;\n'
-                      '4 - dzielenie;\n'
-                      'exit - wyjście\n\n'
-                      'Wybór: ')
+        wynik = input(menu_text)
 
 
     return wynik
-
 
 
 
