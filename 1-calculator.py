@@ -1,66 +1,69 @@
+#!/usr/bin/env python3
+
 '''
+Calculator - simple program with functionalities such as:
+adding, substraction, multiplying and division. It also saves results
+to a backend .txt file in the same directory.
+
 My first own project ever.
-Written: 23.11.2018 - 23.11.2018
-Greetings!
+Written: 23.11.2018
+
 Chris Brymer, author
 '''
 
-# Projekt: kalkulator.
-# dodawanie, odejmowanie, mnożenie, dzielenie.
 
 import os
 from datetime import datetime
 
+
 class Calculator():
 
+    '''Calculator class that has methods such as:
+    add, substract, multiplication and division'''
 
-    def dodaj(self):
+    def add(self):
         print('Dodawanie:')
         self.a = float(input('Pierwsza liczba: '))
         self.b = float(input('Druga liczba: '))
-        self.wynik = self.a + self.b
-        self.znak = ' + '
-        return self.wynik
+        self.result = self.a + self.b
+        self.sign = ' + '
+        return self.result
 
 
-    def odejmij(self):
+    def substract(self):
         print('Odejmowanie:')
         self.a = float(input('Pierwsza liczba: '))
         self.b = float(input('Druga liczba: '))
-        self.wynik = self.a - self.b
-        self.znak = ' - '
-        return self.wynik
+        self.result = self.a - self.b
+        self.sign = ' - '
+        return self.result
 
 
-    def pomnoz(self):
+    def multiply(self):
         print('Mnożenie:')
         self.a = float(input('Pierwsza liczba: '))
         self.b = float(input('Druga liczba: '))
-        self.wynik = self.a * self.b
-        self.znak = ' * '
-        return self.wynik
+        self.result = self.a * self.b
+        self.sign = ' * '
+        return self.result
 
 
-    def podziel(self):
+    def divide(self):
         print('Dzielenie:')
         self.a = float(input('Pierwsza liczba: '))
         self.b = float(input('Druga liczba: '))
-        self.wynik = self.a / self.b
-        self.znak = ' / '
-        return self.wynik
+        self.result = self.a / self.b
+        self.sign = ' / '
+        return self.result
 
 
-    def zapis(self):
+    def save(self):
         path = (os.path.join(os.getcwd(),'historia_kalkulatora.txt'))
         with open(path,'a') as file:
             if os.path.getsize(path) == 0:
-
                 file.write('Historia kalkulatora:\n\n')
-
-            file.write(datetime.now().strftime('%Y-%m-%d: %H:%M:%S') +':   '+ str(self.a)+self.znak+str(self.b) + \
-                       ' = '+str(self.wynik)+'\n')
-
-
+            file.write(datetime.now().strftime('%Y-%m-%d: %H:%M:%S') +':   '+ str(self.a)+self.sign+str(self.b) + \
+                       ' = '+str(self.result)+'\n')
 
 
 def wybór_opcji():
@@ -73,56 +76,46 @@ def wybór_opcji():
         4 - dzielenie;
         exit - wyjście;
         Wybór: '''
-
-    wynik = input(menu_text)
-
-    while wynik not in ['1','2','3','4','exit']:
-
+    result = input(menu_text)
+    while result not in ['1','2','3','4','exit']:
         print('Wybierz jedną z dostępnych opcji!')
-        wynik = input(menu_text)
+        result = input(menu_text)
+
+    return result
 
 
-    return wynik
-
-
-
-komunikat ='''
+hello_sign ='''
  __________________________________
 |@                                @|
 |   Witam w programie kalkulator!  |
 |__________________________________|'''
 
-print(komunikat)
-
-
+print(hello_sign)
 calc = Calculator()
-
-
 choice = wybór_opcji()
 
 while choice != 'exit':
 
     if choice is '1':
 
-        print('\nWynik: ',calc.dodaj())
-        calc.zapis()
+        print('\nresult: ',calc.add())
+        calc.save()
         choice = wybór_opcji()
 
     elif choice is '2':
-        print('\nWynik: ', calc.odejmij())
-        calc.zapis()
+        print('\nresult: ', calc.substract())
+        calc.save()
         choice = wybór_opcji()
 
     elif choice is '3':
-        print('\nWynik: ', calc.pomnoz())
-        calc.zapis()
+        print('\nresult: ', calc.multiply())
+        calc.save()
         choice = wybór_opcji()
 
     elif choice is '4':
-        print('\nWynik: ', calc.podziel())
-        calc.zapis()
+        print('\nresult: ', calc.divide())
+        calc.save()
         choice = wybór_opcji()
-
 
 else:
     print('Koniec programu !\n'\
