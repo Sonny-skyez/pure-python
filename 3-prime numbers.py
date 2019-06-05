@@ -7,7 +7,6 @@ Written: 26.11.2018
 Author: Chris Brymer
 '''
 
-
 welcome = '''
    dBBBBBb dBBBBBb    dBP dBBBBBBb  dBBBP     dBBBBb  dBP dBP dBBBBBBb dBBBBb   dBBBP dBBBBBb .dBBBBP
        dB'     dBP             dBP               dBP               dBP    dBP             dBP BP     
@@ -25,21 +24,15 @@ bye = '''
                                                           |___|        |___|  |_|         |___|                 '''
 
 print(welcome)
-
 press_key = 'Press any key to start printing following prime numbers!\n'.center(100)
 input(press_key)
-
 num = 2
 x = ''
 
-
 while x.lower() != 'exit':
-
     for a in range(2, num):
-
         if num % a == 0:
             num += 1
-
     else:
         print(num,'is a prime.')
         x = input('Press any key to continue or type "exit" to exit program... ')
